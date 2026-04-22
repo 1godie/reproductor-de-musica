@@ -1,18 +1,30 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
+import Canciones from "../components/Canciones.astro";
+
+const response = await fetch('https://api.institutoalfa.org/api/songs');
+const { songs } = await response.json();
 ---
 
 <Layout>
-     <div class="flex flex-col px-12 flex-1">
+    
+    <div class="flex flex-col px-12 flex-1">
         <p class="text-6xl font-bold">My Library</p>
-        <div class="opacity-60 py-4">8 Albums in your collection</div>
+        <div class="opacity-60 py-4">29 songs in your collection</div>
+        <div class="flex gap-4">
+    </div> 
+    <div class="flex justify-end gap-3 ">
+        <a href="" class="bg-blue-400 px-4 rounded-2xl">Filter</a>
+        <a href="" class="bg-blue-400 px-4 rounded-2xl">Sort</a>
     </div>
-    <div class="flex justify-between gap-3 px-10">
-        <a href="">Filter</a>
-        <a href="">Sort</a>
+    <div class="grid grid-cols-3 py-10 ">
+      {
+        songs.map(song => {
+          return (
+            <Canciones song={song} />
+          )
+        })
+      }
     </div>
-    <section></section>
-    <div class="text-2xl font-light bg-blue-500 text-mist-50 p-6 py-2">
-        <a href="">Create Playlist</a>
-    </div>
+   
 </Layout>

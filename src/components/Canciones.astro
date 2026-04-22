@@ -1,13 +1,16 @@
 ---
-const imagenes= Astro.props.imagenes;
-const titulo= Astro.props.titulo;
-const año= Astro.props.año;
-const artista= Astro.props.artista;
+const song = Astro.props.song;
 ---
-<div class="flex flex-col gap-3 px-12">
         <div>
-            <img src={imagenes} alt="" class="w-80 h-80">
-            <p class="text-2xl font-bold">{titulo}</p>
-            <p>{artista}</p>
-            <p>{año}</p>
+            <img src={song.album.image.url} alt="" class="w-80 h-80">
+            <p class="text-2xl font-bold">{song.title}</p>
+            <p>{song.author.name}</p>
+            <p>{song.year}</p>
         </div>
+
+<script define:vars="{song}">
+    document.getElementById(song_id).addEventListener('click', () => {
+        const event = new CustomEvent('play-song', { detail: song });
+    });
+    window.dispatchEvent
+</script>
