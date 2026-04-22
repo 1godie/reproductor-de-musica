@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Canciones from "../components/Canciones.astro";
+import { Icon } from 'astro-icon/components';
 
 const response = await fetch('https://api.institutoalfa.org/api/songs');
 const { songs } = await response.json();
@@ -26,5 +27,4 @@ const { songs } = await response.json();
         })
       }
     </div>
-   
 </Layout>

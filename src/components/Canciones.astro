@@ -1,16 +1,16 @@
 ---
 const song = Astro.props.song;
 ---
-        <div>
-            <img src={song.album.image.url} alt="" class="w-80 h-80">
-            <p class="text-2xl font-bold">{song.title}</p>
-            <p>{song.author.name}</p>
-            <p>{song.year}</p>
-        </div>
 
-<script define:vars="{song}">
-    document.getElementById(song_id).addEventListener('click', () => {
-        const event = new CustomEvent('play-song', { detail: song });
+<div id={song._id}>
+    <img src={song.album.image.url} alt="" class="w-80 h-80" />
+    <p class="text-2xl font-bold">{song.title}</p>
+    <p>{song.author.name}</p>
+</div>
+
+<script define:vars={{song}}>
+    document.getElementById(song._id).addEventListener("click", () => {
+        const event = new CustomEvent("play-song", { detail: song });
+        window.dispatchEvent(event);
     });
-    window.dispatchEvent
 </script>

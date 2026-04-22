@@ -44,8 +44,31 @@ import "../styles/global.css";
 		</div>
 		<footer>
 			<div>
-				fdgdaf
+				<img src="" id="image" alt="" />
+				<p id="song-title"></p>
+				<p id="song-author"></p>
 			</div>
 		</footer>
+		<div>
+			<div>imagen</div>
+			<div>titulo</div>
+			<div>artista</div>
+		</div>
+		<div>
+			<div>back</div>
+			<div>play</div>
+			<div>skip</div>
+		</div>
+		<audio autoplay id="audio" src=""></audio>
 	</body>
 </html>
+
+<script>
+	window.addEventListener("play-song", (event) => {
+		const song = event.detail;
+		document.getElementById("image").src = song.album.image.url;
+		document.getElementById("song-title").textContent = song.title;
+		document.getElementById("song-author").textContent = song.author.name;
+		document.getElementById("audio").src = song.url;
+	});
+</script>
