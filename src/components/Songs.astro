@@ -1,18 +1,11 @@
 ---
 ---
-<audio src="" id="audio" autoplay></audio>
 <script>
-document.addEventListener(DOMContentLoaded, () => {
-const lastPlayedSong = localStorage.getItem("lastPlayedSong");
-if (lastPlayedSong) {
-    const song = JSON.parse(lastPlayedSong);
+    window.addEventListener("play-song", (event) => {
+    const song = event.detail.song;
     document.getElementById("image").src = song.album.image.url;
     document.getElementById("song-title").textContent = song.title;
-    document.getElementById("song-author").textContent = song.author.name;
-
-
-
-
-    
-}
+    document.getElementById("song-author").textContent = song.author.name;  
+    document.getElementById("audio").src = song.audio.url;
 });
+</script>
