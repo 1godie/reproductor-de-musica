@@ -1,12 +1,12 @@
----z
+---
 ---
 <section>
-    <audio y src=""id="audio" autopla></audio>
+    <audio src="" autoplay></audio>
 </section>
 <script>
     window.addEventListener("play-song", (event) => {
     const song = event.detail.song;
-    document.getElementById("image").src = song.album.image.url;
+    document.getElementById("imagen").src = song.album.image.url;
     document.getElementById("song-title").textContent = song.title;
     document.getElementById("song-author").textContent = song.author.name;  
     document.getElementById("audio").src = song.audio.url;
