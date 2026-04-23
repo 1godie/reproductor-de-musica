@@ -23,7 +23,8 @@ const { songs } = await response.json();
         {songs.map((song: any) => {
             return <Canciones song={song} />;
           })
-        }
+        },
+
       </div>
     </main>
 </Layout>
