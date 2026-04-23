@@ -59,7 +59,7 @@ import "../styles/global.css";
 			<div>play</div>
 			<div>skip</div>
 		</div>
-		<audio autoplay id="audio" src=""></audio>
+		<audio src="" id="audio" autoplay></audio>
 	</body>
 </html>
 
@@ -69,6 +69,6 @@ import "../styles/global.css";
 		document.getElementById("image").src = song.album.image.url;
 		document.getElementById("song-title").textContent = song.title;
 		document.getElementById("song-author").textContent = song.author.name;
-		document.getElementById("audio").src = song.url;
+		document.getElementById("audio").src = song.audio.url;
 	});
 </script>

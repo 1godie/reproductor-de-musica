@@ -1,0 +1,18 @@
+---
+---
+<audio src="" id="audio" autoplay></audio>
+<script>
+document.addEventListener(DOMContentLoaded, () => {
+const lastPlayedSong = localStorage.getItem("lastPlayedSong");
+if (lastPlayedSong) {
+    const song = JSON.parse(lastPlayedSong);
+    document.getElementById("image").src = song.album.image.url;
+    document.getElementById("song-title").textContent = song.title;
+    document.getElementById("song-author").textContent = song.author.name;
+
+
+
+
+    
+}
+});
