@@ -1,7 +1,6 @@
 ---
-import "../styles/global.css";
-import { Icon } from "astro-icon/components";
 import Song from "../components/Song.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -15,52 +14,15 @@ import Song from "../components/Song.astro";
 		<title>reproductor de musica</title>
 	</head>
 	<body>
-		<header class="flex justify-between px-10 py-6 sticky top-0 z-30 bg-green-400">
+		<header
+			class="flex justify-between px-10 py-6 sticky top-0 z-30 bg-green-400"
+		>
 			<p class="text-4xl font-bold">The Gallery</p>
-			<div class="flex gap-6 opacity-60">
-			</div>
+			<div class="flex gap-6 opacity-60"></div>
 		</header>
-		<div class="flex"></div>
 
-		<div class="px-12 py-20"></div>
 		<slot />
-		<div></div>
-		<footer class="sticky bottom-0 bg-cyan-700">
-		<div>
-			<div>
-				<div class="flex justify-center gap-10 py-5">
-					<Icon
-						name="skip-back"
-						style="height: 20px; height: auto;"
-					/>
-					<Icon name="play" style="height: 20px; height: 20px;" />
-					<Icon name="skip" style="height: 20px; height: auto;" />
-				</div>
-				<div class="flex items-center max-w-4xl">
-					<div class="w-full flex justify-center items-center group">
-						<p class="text-[11px] text-amber-50 font-medium min-w-7.5 text-right">
-							2:45
-						</p>
-						<div class="flex-1 h-1 bg-white/10 rounded-full cursor-pointer relative overflow-hidden">
-							<div	class="h-full bg-blue-800 w-[42%] group-hover:bg-[#e1eee5]"></div>
-						</div>
-						<p class="text-[11px] text-green-50 font-medium min-w-7.5 text-right">
-							1:12
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	  <audio id="audio" autoplay src="" ></audio>
+
+		<Song ></Song>
 	</body>
 </html>
-<script>
-    window.addEventListener("play-song", (event) => {
-    const song = event.detail.song;
-    document.getElementById("imagen").src = song.album.image.url;
-    document.getElementById("title").textContent = song.title;
-    document.getElementById("author").textContent = song.author.name;  
-    document.getElementById("audio").src = song.audio.url;
-});
-</script>

@@ -1,14 +1,60 @@
 ---
+import { Icon } from "astro-icon/components";
+
+
 ---
+		<footer class="sticky bottom-0 bg-cyan-700 py-0">
+			<div>
+				<div class="flex max-w-full">
+					
+					<div class="flex flex-1 items-center max-w-4xl">
+						<img id="image" class="w-32 h-32 rounded-full" src="" alt="" />
+						<p id="song-title" class=""></p>
+						<p id="song-author" class=""></p>
+						<div
+							class="w-full flex justify-center items-center group"
+						>
+							<p
+								class="text-[11px] text-amber-50 font-medium min-w-7.5 text-right"
+							>
+								2:45
+							</p>
+							<div
+								class="flex-1 h-1 bg-white/10 rounded-full cursor-pointer relative overflow-hidden"
+							>
+								<div
+									class="h-full bg-blue-800 w-[42%] group-hover:bg-[#e1eee5]"
+								>
+								</div>
+							</div>
+							<p
+								class="text-[11px] text-green-50 font-medium min-w-7.5 text-right"
+							>
+								1:12
+							</p>
+						</div>
+					</div>
+                    <div class="flex flex-1 justify-center gap-10 py-5 ">
+						<Icon
+							name="skip-back"
+							style="height: 20px; height: auto;"
+						/>
+						<Icon name="play" style="height: 20px; height: auto;" />
+						<Icon name="skip" style="height: 20px; height: auto;" />
+					</div>
+				</div>
+			</div>
+		</footer>
 <section>
-    <audio src="" autoplay></audio>
+    <audio src="" autoplay id="audio"></audio>
 </section>
 <script>
     window.addEventListener("play-song", (event) => {
-    const song = event.detail.song;
-    document.getElementById("imagen").src = song.album.image.url;
-    document.getElementById("song-title").textContent = song.title;
-    document.getElementById("song-author").textContent = song.author.name;  
-    document.getElementById("audio").src = song.audio.url;
-});
+        const song = event.detail.song;
+        document.getElementById("image").src = song.album.image.url;
+        document.getElementById("song-title").textContent = song.title;
+        document.getElementById("song-author").textContent = song.author.name;
+
+        document.getElementById("audio").src = song.audio.url;
+    });
 </script>
