@@ -39,7 +39,7 @@ import { Icon } from "astro-icon/components";
 							name="skip-back"
 							style="height: 20px; height: auto;"
 						/>
-						<Icon name="play" style="height: 20px; height: auto;" />
+						<Icon id="play" name="play" style="height: 20px; height: auto;" />
 						<Icon name="skip" style="height: 20px; height: auto;" />
 					</div>
 				</div>
@@ -56,5 +56,14 @@ import { Icon } from "astro-icon/components";
         document.getElementById("song-author").textContent = song.author.name;
 
         document.getElementById("audio").src = song.audio.url;
+    });
+
+    document.getElementById("play").addEventListener("click", () => {
+        const audio = document.getElementById("audio");
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
     });
 </script>
